@@ -22,15 +22,15 @@
     <tbody>  
 {% for diary in diaries %}  
     <tr>  
-        <td>{{ diary.id }}</td>  
+        <td>{{ diary.did }}</td>  
         <td>{{ diary.first_name }}</td>  
         <td>{{ diary.middle_name }}</td>  
         <td>{{ diary.last_names }}</td>  
         <td>{{ diary.email }}</td>  
         <td>{{ diary.cellphone }}</td>  
         <td>  
-            <a href="/edit/{{ diary.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="/delete/{{ diary.id }}">Delete</a>  
+            <a href="/edit/{{ diary.did }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ diary.did }}">Delete</a>  
         </td>  
     </tr>  
 {% endfor %}  
