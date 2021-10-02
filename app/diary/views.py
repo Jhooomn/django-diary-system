@@ -17,17 +17,17 @@ def diary(request):
 def show(request):  
     diaries = Diary.objects.all()  
     return render(request,"show.html",{'diaries':diaries})  
-def edit(request, id):  
-    diary = Diary.objects.get(id=id)  
+def edit(request, did):  
+    diary = Diary.objects.get(did=did)  
     return render(request,'edit.html', {'diary':diary})  
-def update(request, id):  
-    diary = Diary.objects.get(id=id)  
+def update(request, did):  
+    diary = Diary.objects.get(did=did)  
     form = DiaryForm(request.POST, instance = diary)  
     if form.is_valid():  
         form.save()  
         return redirect("/show")  
     return render(request, 'edit.html', {'diary': diary})  
-def destroy(request, id):  
-    diary = Diary.objects.get(id=id)  
+def destroy(request, did):  
+    diary = Diary.objects.get(did=did)  
     diary.delete()  
     return redirect("/show")  
