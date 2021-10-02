@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Diary Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Diary ID</th>  
+        <th>User FirstName</th>
+        <th>User MiddleName</th>  
+        <th>User Lastnames</th>    
+        <th>User Email</th>  
+        <th>User cellphone</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for diary in diaries %}  
+    <tr>  
+        <td>{{ diary.id }}</td>  
+        <td>{{ diary.first_name }}</td>  
+        <td>{{ diary.middle_name }}</td>  
+        <td>{{ diary.last_names }}</td>  
+        <td>{{ diary.email }}</td>  
+        <td>{{ diary.cellphone }}</td>  
+        <td>  
+            <a href="/edit/{{ diary.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ diary.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/diary" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
