@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Diary Records</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Diary ID</th>  
+        <th>User FirstName</th>
+        <th>User MiddleName</th>  
+        <th>User Lastnames</th>    
+        <th>User Email</th>  
+        <th>User cellphone</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for diary in diaries %}  
+    <tr>  
+        <td>{{ diary.did }}</td>  
+        <td>{{ diary.first_name }}</td>  
+        <td>{{ diary.middle_name }}</td>  
+        <td>{{ diary.last_names }}</td>  
+        <td>{{ diary.email }}</td>  
+        <td>{{ diary.cellphone }}</td>  
+        <td>  
+            <a href="/edit/{{ diary.did }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ diary.did }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/diary" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
